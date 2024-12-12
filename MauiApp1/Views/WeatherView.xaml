@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.WeatherView">
+    <VerticalStackLayout Padding="30" HorizontalOptions="Center">
+        <Frame
+            BackgroundColor="#fff"
+            CornerRadius="15"
+            Margin="0, -10, 0, 10"
+            Padding="2">
+            <Grid ColumnDefinitions="Auto, *, Auto">
+                <Button
+                    Grid.Column="0"
+                    Text="🔎"
+                    HeightRequest="25"
+                    BackgroundColor="#fff"
+                    Padding="0"
+                    Command="{Binding GetCommand}"/>
+                <Entry
+                    Grid.Column="1"
+                    Placeholder="Digite uma cidade"
+                    Text="{Binding CityInput}"
+                    VerticalOptions="Center"
+                    Margin="5,0"
+                    TextColor="Black"
+                    PlaceholderColor="Gray"/>
+                <Picker
+                    SelectedItem="{Binding Escolha}"
+                    Grid.Column="2">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Cidade</x:String>
+                            <x:String>Coordenada</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+        </Frame>
+
+
+        <Label
+            Text="{Binding CityName}"
+            FontSize="30"
+            FontAttributes="Bold"
+            Margin="10,0,0,10"/>
+
+        <Frame
+            BackgroundColor="#fff"
+            Padding="10"
+            CornerRadius="20"
+            HasShadow="True">
+            <HorizontalStackLayout>
+                <Label
+                    Text="{Binding Temp}"
+                    FontSize="50"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+
+        <Label
+            Text="{Binding Geral}"
+            FontSize="30"
+            Margin="0,10,0,10"/>
+        <Label
+            Text="{Binding Tempextra}"
+            FontSize="20"
+            Margin="0,0,0,30"/>
+
+
+        <Frame
+            BackgroundColor="#fff"
+            Padding="10"
+            CornerRadius="20"
+            HasShadow="True">
+            <HorizontalStackLayout>
+                <VerticalStackLayout Padding="20, 20, 20, 20" >
+                    <Label
+                        Text="Nascer do Sol"
+                        HorizontalOptions="Center"
+                        FontSize="18"/>
+                    <Label
+                        Text="{Binding Sunrise}"
+                        HorizontalOptions="Center"
+                        FontSize="25"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Padding="20, 20, 20, 20">
+                    <Label
+                        Text="Pôr do Sol"
+                        HorizontalOptions="Center"
+                        FontSize="18"/>
+                    <Label
+                        Text="{Binding Sunset}"
+                        HorizontalOptions="Center"
+                        FontSize="25"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+
+        <Grid Margin="0,20,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                BackgroundColor="#fff"
+                Padding="10"
+                CornerRadius="20"
+                HasShadow="True"
+                Grid.Column="0"
+                Margin="0, 0, 10, 0">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Humidade"
+                        FontSize="15"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Label
+                        Text="{Binding Humidade}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame
+                BackgroundColor="#fff"
+                Padding="10"
+                CornerRadius="20"
+                HasShadow="True"
+                Grid.Column="1"
+                Margin="10, 0, 0, 0">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Vento"
+                        FontSize="15"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Label
+                        Text="{Binding Vento}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <Grid Margin="0,10,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                BackgroundColor="#fff"
+                Padding="10"
+                CornerRadius="20"
+                HasShadow="True"
+                Grid.Column="0"
+                Margin="0,0,10,0">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Visibilidade"
+                        FontSize="15"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Label
+                        Text="{Binding Visibilidade}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame
+                BackgroundColor="#fff"
+                Padding="10"
+                CornerRadius="20"
+                HasShadow="True"
+                Grid.Column="1"
+                Margin="10,0,0,0">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Pressão"
+                        FontSize="15"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Label
+                        Text="{Binding Pressao}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
+
